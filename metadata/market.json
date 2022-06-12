@@ -39,6 +39,7 @@
         "tags": ["Mail"],
         "releases": "releases/latest",
         "github": "Coooookies/Grasscutter-MeaMailPlus",
-        "description": "A plugin of Grasscutter for send in-game mail conveniently"
+        "description": "A plugin of Grasscutter for send in-game mail conveniently",
+        "icon": "https://raw.githubusercontent.com/gc-mojoconsole/landscaper-depot/main/images/MeaMailPlus.png"
     }
 ]
