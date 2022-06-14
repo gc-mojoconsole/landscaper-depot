@@ -41,5 +41,12 @@
         "github": "Coooookies/Grasscutter-MeaMailPlus",
         "description": "A plugin of Grasscutter for send in-game mail conveniently",
         "icon": "https://raw.githubusercontent.com/gc-mojoconsole/landscaper-depot/main/images/MeaMailPlus.png"
+    },
+    {
+        "name": "IdLookPlugin",
+        "tags": ["Handbook", "Helper"],
+        "releases": "releases/latest",
+        "github": "ffauzan/id-look",
+        "description": "A plugin of Grasscutter for lookup item IDs from the handbook"
     }
 ]
