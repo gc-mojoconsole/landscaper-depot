@@ -73,5 +73,74 @@
                 }
             }
         }
-    }    
+    },
+    "diagnose": [
+        {
+            "op": "eq",
+            "params": [
+                {"op": "get_gc", "params": ["server.http.policies.cors.enabled"]},
+                {"op": "get_plugin", "params": ["UseCDN"]}
+            ],
+            "description": "CORS should be enabled when using CDN for frontend servering"
+        },
+        {
+            "op": "then",
+            "params": [
+                {
+                    "op": "eq",
+                    "params": [
+                        {"op": "get_plugin", "params": ["UseCDN"]},
+                        {"op": "value", "params": [true]}
+                    ]
+                },
+                {
+                    "op": "or",
+                    "params": [
+                        {
+                            "op": "contains",
+                            "params": [
+                                {"op": "get_gc", "params": ["server.http.policies.cors.allowedOrigins"]},
+                                {"op": "value", "params": ["*"]}
+                            ]
+                        },
+                        {
+                            "op": "contains",
+                            "params": [
+                                {"op": "get_gc", "params": ["server.http.policies.cors.allowedOrigins"]},
+                                {"op": "match", 
+                                    "params": [
+                                        {"op": "get_plugin", "params": ["CDNLink"]},
+                                        {"op": "value", "params": [".*://(.*)/"]},
+                                        {"op": "value", "params": [1]}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "CORS allowed origins may be not configured correctly."
+        },
+        {
+            "op": "or",
+            "params": [
+                {"op": "contains", "params": [
+                    {"op": "get_gc", "params": ["account.defaultPermissions"]},
+                    {"op": "value", "params": ["*"]}
+                ]},
+                {"op": "contains", "params": [
+                    {"op": "get_gc", "params": ["account.defaultPermissions"]},
+                    {"op": "value", "params": ["mojo.console"]}
+                ]},
+                {"op": "contains", "params": [
+                    {"op": "get_gc", "params": ["account.defaultPermissions"]},
+                    {"op": "value", "params": ["mojo.*"]}
+                ]}
+            ],
+            "description": {
+                "type": "warning",
+                "message": "Mojo console not permitted to be used by default, check your configuration."
+            }
+        }
+    ]
 }
