@@ -50,6 +50,7 @@
         "description": "A plugin of Grasscutter for lookup item IDs from the handbook"
     },
     {
+        "name": "SwitchElement",
         "tags": ["Command", "Helper"],
         "github": "Penelopeep/SwitchElementTraveller",
         "releases": "releases/latest",
