@@ -76,10 +76,16 @@
     },
     "diagnose": [
         {
-            "op": "eq",
+            "op": "then",
             "params": [
-                {"op": "get_gc", "params": ["server.http.policies.cors.enabled"]},
-                {"op": "get_plugin", "params": ["UseCDN"]}
+                {
+                    "op": "eq",
+                    "params": [
+                        {"op": "get_plugin", "params": ["UseCDN"]},
+                        {"op": "value", "params": [true]}
+                    ]
+                },
+                {"op": "get_gc", "params": ["server.http.policies.cors.enabled"]}
             ],
             "description": "CORS should be enabled when using CDN for frontend servering"
         },
