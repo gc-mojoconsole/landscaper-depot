@@ -48,5 +48,11 @@
         "releases": "releases/latest",
         "github": "ffauzan/id-look",
         "description": "A plugin of Grasscutter for lookup item IDs from the handbook"
+    },
+    {
+        "tags": ["Command", "Helper"],
+        "github": "Penelopeep/SwitchElementTraveller",
+        "releases": "releases/latest",
+        "description": "Allows to quickly change traveller element"
     }
 ]
